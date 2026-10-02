@@ -1,0 +1,932 @@
+@font-face {
+  font-family: "Anthony";
+  src:
+    url("../fonts/anthony.woff2") format("woff2"),
+    url("../fonts/anthony.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ABC Favorit Lining";
+  src: url("../fonts/ABCFavoritLiningTrial-Light.otf") format("opentype");
+  font-weight: 200 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ABC Favorit Lining";
+  src: url("../fonts/ABCFavoritLiningTrial-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ABC Favorit";
+  src: url("../fonts/ABCFavoritTrial-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ABC Favorit";
+  src: url("../fonts/ABCFavoritTrial-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ABC Favorit";
+  src: url("../fonts/ABCFavoritTrial-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ABC Favorit";
+  src: url("../fonts/ABCFavoritTrial-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  --text: #111;
+  --muted: #8a8a8a;
+  --rule: #111;
+  --hairline: #e2e2e2;
+  --link: #3366cc;
+  --new-link: #d73333;
+  --gutter: 2.5rem;
+  --small: 1rem;
+  --title-size: 3.2rem;
+  --title-leading: 1.05;
+  --title-pad: 0.25em;
+  font-size: clamp(12px, 0.92vw, 16px);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+html.is-large {
+  font-size: clamp(15px, 1.15vw, 20px);
+}
+
+html.is-large .content {
+  grid-column: 2 / 6;
+}
+
+html.is-large .infobox {
+  grid-column: 6 / 9;
+}
+
+html.is-large .page__head,
+html.is-large .site-header__tagline,
+html.is-large .catlinks,
+html.is-large .site-footer p {
+  grid-column: 2 / 9;
+}
+
+.is-talk {
+  display: none;
+}
+
+html.is-large .is-read {
+  display: none;
+}
+
+html.is-large .is-talk {
+  display: block;
+}
+
+html.is-large #references,
+html.is-large .references {
+  display: none;
+}
+
+.zoom-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-family: "ABC Favorit", "Inter", Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.zoom-toggle:hover {
+  font-family: "ABC Favorit Lining", Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: #fff;
+  font-family: "ABC Favorit", "Inter", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  font-family: "ABC Favorit Lining", "ABC Favorit", "Inter", Helvetica, Arial, sans-serif;
+}
+
+/* Blue is the default link colour (real Wikipedia pages).
+   Red marks Yunso's own wiki pages and in-page bookmarks. */
+a.is-own,
+a[href^="#"] {
+  color: var(--new-link);
+}
+
+/* Wikipedia links reveal a small "W" mark on hover so readers know the link
+   leads to the real Wikipedia. */
+a[href*="wikipedia.org"] {
+  position: relative;
+}
+
+.wiki-badge {
+  position: fixed;
+  z-index: 200;
+  transform: translate(-50%, -130%);
+  padding: 0.1em 0.3em 0;
+  font-family: "Linux Libertine", "Hoefler Text", "Cambria", Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.wiki-badge[hidden] {
+  display: none;
+}
+
+::selection {
+  background: #111;
+  color: #fff;
+}
+
+/* ── Grid ──
+ * 12 columns, shared by header, page and footer.
+ *   1–2   contents
+ *   3–7   article
+ *   8–10  infobox
+ *   11–12 margin
+ * Press G to show the columns.
+ */
+
+.site-header,
+.page,
+.site-footer,
+.grid {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: start;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.grid-overlay[hidden] {
+  display: none;
+}
+
+.grid-overlay__inner {
+  height: 100%;
+}
+
+.grid-overlay__inner span {
+  height: 100%;
+  background: rgba(215, 51, 51, 0.08);
+  border-left: 1px solid rgba(215, 51, 51, 0.25);
+  border-right: 1px solid rgba(215, 51, 51, 0.25);
+}
+
+/* ── Header ── */
+
+.site-header {
+  align-items: baseline;
+  padding-top: 1.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.wordmark {
+  grid-column: 1 / 3;
+  color: var(--text);
+  font-family: "ABC Favorit Lining", Helvetica, sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.wordmark:hover {
+  text-decoration: none;
+}
+
+.site-header__tagline {
+  grid-column: 3 / 8;
+  font-size: var(--small);
+  color: var(--muted);
+}
+
+/* ── Title & tabs ── */
+
+.page__head {
+  grid-column: 3 / 8;
+  margin-bottom: 3.5rem;
+}
+
+.page__title {
+  margin: 0;
+  padding-bottom: var(--title-pad);
+  font-family: "ABC Favorit Lining", Helvetica, sans-serif;
+  font-size: var(--title-size);
+  font-weight: 200;
+  letter-spacing: -0.035em;
+  line-height: var(--title-leading);
+}
+
+.page__title,
+.content h2,
+.infobox__title {
+  display: flex;
+  align-items: baseline;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "ABC Favorit Lining", Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+.page__title::after,
+.content h2::after,
+.infobox__title::after {
+  content: "________________________________________________________________________________________________________________________________________";
+  margin-left: 0.25em;
+  letter-spacing: 0;
+  flex: 0 0 auto;
+}
+
+.tabs {
+  display: flex;
+  font-size: var(--small);
+}
+
+.tabs__group {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.tabs__tab {
+  padding: 0.5rem 0 0.4rem;
+  border-bottom: 1px solid transparent;
+}
+
+.tabs__tab.is-selected {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
+
+.tabs a.tabs__tab.is-selected:hover {
+  text-decoration: none;
+}
+
+/* ── Contents (sidebar) ── */
+
+/* Pushed down by the title's height so it shares a row with the tabs. */
+.toc {
+  grid-column: 1 / 3;
+  grid-row: 1 / span 3;
+  position: sticky;
+  top: 1.5rem;
+  margin-top: calc(var(--title-size) * (var(--title-leading) + 0.25) + 1px);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* Shared so both sticky columns line up when scrolling. */
+.toc__title,
+.infobox__title {
+  padding: 0.5rem 0 0.4rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--small);
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.infobox__title {
+  padding-top: 0;
+  border-bottom: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  max-height: 4rem;
+  transition: max-height 0.2s ease, opacity 0.2s ease;
+}
+
+.infobox__title.is-hidden {
+  max-height: 0;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toc ol {
+  margin: 0;
+  padding: 0.5rem 0 0;
+  list-style: none;
+}
+
+.toc a {
+  display: flex;
+  padding: 0.1rem 0;
+  color: var(--text);
+}
+
+.toc a:hover {
+  color: var(--link);
+  text-decoration: none;
+}
+
+/* ── Article ── */
+
+.content {
+  grid-column: 3 / 6;
+  line-height: 1.4;
+}
+
+.hatnote {
+  margin: 2rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.content p {
+  margin: 0 0 1.2em;
+}
+
+.lede {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.lede b {
+  font-weight: 500;
+}
+
+.content h2 {
+  margin: 3rem 0 2rem;
+  padding-bottom: 0;
+  border-bottom: 0;
+  font-family: "ABC Favorit Lining", Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  scroll-margin-top: 1.5rem;
+}
+
+sup.citation-needed {
+  margin-left: 0.1em;
+  font-size: 0.7em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--link);
+}
+
+/* ── Infobox ── */
+
+.infobox {
+  grid-column: 6 / 8;
+  position: sticky;
+  top: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Label takes one of the infobox's three columns, value the other two. */
+.infobox__rows {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  margin: 0;
+}
+
+.infobox__rows dt,
+.infobox__rows dd {
+  margin: 0;
+  padding: 0.1rem 0;
+}
+
+.infobox__rows dd {
+  grid-column: span 2;
+}
+
+.infobox__rows dt {
+  color: var(--muted);
+}
+
+.infobox__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1rem 0 1.2rem;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #f4f4f4;
+  transition: margin-top 0.2s ease;
+}
+
+.infobox .infobox__image--pair {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: unset;
+  background: transparent;
+}
+
+.infobox__image--pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgb(0 0 0 / 20%);
+}
+
+.infobox__image--pair img + img {
+  border-top: 0;
+}
+
+.infobox__title.is-hidden + .infobox__image,
+.infobox__image:first-child {
+  margin-top: 0;
+}
+
+.is-mono img {
+  filter: grayscale(1);
+}
+
+/* ── Triangle ── */
+
+.triangle {
+  position: relative;
+  width: 80%;
+  margin: 2rem auto 2rem;
+  aspect-ratio: 300 / 260;
+  font-size: var(--small);
+  transition: margin-top 0.2s ease;
+}
+
+.infobox__title.is-hidden + .triangle {
+  margin-top: 0;
+}
+
+.triangle svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.triangle polygon {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 0.11rem;
+  vector-effect: non-scaling-stroke;
+}
+
+.triangle__point {
+  position: absolute;
+  padding: 0.4em 0.7em;
+  background: #fff;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+
+.triangle__point--top {
+  top: 7.7%;
+  left: 50%;
+}
+
+.triangle__point--left {
+  top: 92.3%;
+  left: 10%;
+}
+
+.triangle__point--right {
+  top: 92.3%;
+  left: 90%;
+}
+
+/* ── Thumbnails ── */
+
+/* Each thumbnail spans two of the article's six columns, so all three fit in one row. */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 2rem 0 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.gallery li {
+  grid-column: span 2;
+}
+
+.gallery--single li {
+  grid-column: 1 / -1;
+}
+
+.gallery--single .thumb img {
+  aspect-ratio: 16 / 9;
+}
+
+.gallery--single .thumb img.is-natural {
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.spreads {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 0.75rem;
+  row-gap: 0;
+  margin: 2rem 0 2.5rem;
+}
+
+.spreads img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid rgb(0 0 0 / 20%);
+}
+
+.spreads > img:nth-child(n + 3) {
+  border-top: 0;
+}
+
+.spreads__full img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.spreads > figcaption,
+.spreads__full {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.spreads__full {
+  margin-top: 0.75rem;
+}
+
+.spreads figcaption {
+  padding: 0.4rem 0 0;
+  font-size: var(--small);
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.reference {
+  font-size: 0.7em;
+  line-height: 0;
+  margin-left: 0.12em;
+  white-space: nowrap;
+}
+
+.references {
+  margin: 0.4rem 0 0;
+  padding-left: 1.6rem;
+  font-size: var(--small);
+  line-height: 1.45;
+}
+
+.references li {
+  margin: 0.45rem 0;
+  padding-left: 0.2rem;
+}
+
+.references a:not([href*="wikipedia.org"]):not([href^="#"]) {
+  color: var(--text);
+}
+
+.references cite {
+  font-style: italic;
+}
+
+.friends__edit,
+.friends__form button,
+.friends__remove {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--new-link);
+  font-family: "ABC Favorit", "Inter", Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.4;
+  text-transform: none;
+  cursor: pointer;
+}
+
+.friends__edit {
+  margin-left: 0.6rem;
+}
+
+.friends__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.friends__list li {
+  margin: 0 0 0.7rem;
+}
+
+.friends__name {
+  font-weight: 500;
+}
+
+.friends__remove {
+  margin-left: 0.6rem;
+}
+
+.friends__form {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0.4rem 0 1.4rem;
+}
+
+.friends__form[hidden] {
+  display: none;
+}
+
+.friends__actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.friends__status {
+  margin: 0 0 1rem;
+}
+
+.friends__form label {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.friends__form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.35rem 0.5rem;
+  border: 0.5px solid rgb(0 0 0 / 20%);
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.slideshow__frame {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #f4f4f4;
+}
+
+.slideshow__track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  animation: slideshow-left 32s infinite ease-in-out;
+}
+
+.slideshow__track img {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+@keyframes slideshow-left {
+  0%,
+  18% { transform: translateX(0); }
+  25%,
+  43% { transform: translateX(-100%); }
+  50%,
+  68% { transform: translateX(-200%); }
+  75%,
+  93% { transform: translateX(-300%); }
+  100% { transform: translateX(-400%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slideshow__track {
+    animation: none;
+  }
+}
+
+.thumb {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f4f4f4;
+}
+
+.thumb figcaption {
+  display: flex;
+  padding: 0.4rem 0 0;
+  font-size: var(--small);
+  line-height: 1.35;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.thumb figcaption a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* ── Categories ── */
+
+.catlinks {
+  grid-column: 3 / 8;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.2rem;
+  margin-top: 3rem;
+  padding: 0.6rem 0;
+  border-top: 0.14rem solid var(--rule);
+  font-size: var(--small);
+}
+
+.catlinks__label {
+  color: var(--muted);
+}
+
+/* ── Footer ── */
+
+.site-footer {
+  padding-top: 1.2rem;
+  padding-bottom: 3rem;
+  font-size: var(--small);
+  color: var(--muted);
+}
+
+.site-footer p {
+  grid-column: 3 / 8;
+  margin: 0;
+}
+
+/* ── Smaller screens ──
+ * Contents are hidden; the article takes columns 1–7, the infobox 9–12.
+ */
+
+@media (max-width: 1100px) {
+  .wordmark {
+    grid-column: 1 / 4;
+  }
+
+  .site-header__tagline {
+    grid-column: 4 / 10;
+  }
+
+  .toc {
+    display: none;
+  }
+
+  .page__head,
+  .catlinks,
+  .site-footer p {
+    grid-column: 1 / 10;
+  }
+
+  .content {
+    grid-column: 1 / 6;
+  }
+
+  .infobox {
+    grid-column: 6 / 10;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    --gutter: 1.1rem;
+    --title-size: 2.2rem;
+    font-size: 16px;
+  }
+
+  .site-header {
+    padding-bottom: 2rem;
+  }
+
+  .wordmark {
+    grid-column: 1 / 5;
+  }
+
+  .site-header__tagline {
+    grid-column: 5 / 10;
+    text-align: right;
+  }
+
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page__head,
+  .infobox,
+  .content,
+  .catlinks {
+    grid-column: 1 / -1;
+  }
+
+  .page__head { grid-row: 1; }
+  .infobox    { grid-row: 2; }
+  .content    { grid-row: 3; }
+  .catlinks   { grid-row: 4; }
+
+  .infobox {
+    position: static;
+    margin: 2rem 0 2.5rem;
+  }
+
+  .infobox__title {
+    display: none;
+  }
+
+  .infobox__image {
+    margin-top: 0;
+  }
+
+  .page__head {
+    margin-bottom: 0;
+  }
+
+  .triangle {
+    margin: 0 auto 1rem;
+  }
+
+  .zoom-toggle {
+    display: none;
+  }
+
+  .gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gallery li {
+    grid-column: auto;
+  }
+}

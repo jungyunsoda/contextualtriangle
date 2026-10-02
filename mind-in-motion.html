@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mind in Motion — Yunso's Triangle</title>
+    <meta
+      name="description"
+      content="Mind in Motion is a series of brain–computer interfaces by Yunso Jung."
+    />
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/zoom.js?v=2"></script>
+  </head>
+  <body id="top">
+    <button type="button" id="zoom-toggle" class="zoom-toggle" aria-label="Presenter mode" aria-pressed="false">+</button>
+    <header class="site-header" aria-hidden="true"></header>
+
+    <main class="page">
+      <div class="page__head">
+        <h1 class="page__title">Mind in Motion</h1>
+      </div>
+
+      <article class="content">
+        <p class="lede is-read">
+          <b>Mind in Motion</b> is a series of interfaces that translate users' brain
+          activity into creative outputs and a physical souvenir that captures an
+          imprint of their individuality.<sup class="reference" id="cite-ref-lasalle"><a href="#cite-note-lasalle">[1]</a></sup>
+          It is part of the <a href="index.html#proud">first section</a> of
+          <a href="index.html">Yunso's Triangle</a>, along with
+          <a href="stone.html">Stone</a> and
+          <a href="dream-journal.html">Dream Journal</a>.
+        </p>
+        <p class="lede is-talk">
+          <b>Mind in Motion</b> turns brain activity into creative outputs and a physical souvenir.<sup class="reference"><a href="#cite-note-lasalle">[1]</a></sup>
+          It is part of the <a href="index.html#proud">first section</a> of
+          <a href="index.html">Yunso's Triangle</a>, along with
+          <a href="stone.html">Stone</a> and
+          <a href="dream-journal.html">Dream Journal</a>.
+        </p>
+
+        <h2 id="concept">Concept</h2>
+        <p class="is-read">
+          Mind in Motion responds to a cultural anxiety about AI and authorship. As
+          generative tools automate more of creativity, originality is increasingly
+          questioned.
+        </p>
+        <p class="is-read">
+          <a href="https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface" target="_blank" rel="noopener">Brain–computer interfaces</a>
+          are often designed for utility and control. However, this project treats
+          brain activity as an ambiguous, passive input.
+        </p>
+        <p class="is-read">
+          Drawing from
+          <a href="https://en.wikipedia.org/wiki/Surrealist_automatism" target="_blank" rel="noopener">surrealist automatism</a>,
+          it reconstructs the automatic through a machine. Brain activity becomes a
+          recording instrument for the unconscious rather than a tool for intention.
+        </p>
+        <p class="is-talk">
+          It responds to anxiety about AI and authorship.
+          <a href="https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface" target="_blank" rel="noopener">Brain–computer interfaces</a>
+          are usually built for control; here brain activity is a passive input.
+          Drawing from
+          <a href="https://en.wikipedia.org/wiki/Surrealist_automatism" target="_blank" rel="noopener">surrealist automatism</a>,
+          it records the unconscious rather than intention.
+        </p>
+        <ul class="gallery gallery--single">
+          <li>
+            <figure class="thumb">
+              <img src="images/eeg-headband.jpg" alt="A person fitting an EEG headband" />
+              <figcaption>EEG headband</figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <h2 id="early-experiments">Early experiments</h2>
+        <p class="is-read">
+          Surrealist strategies, such as
+          <a href="https://en.wikipedia.org/wiki/Automatic_drawing" target="_blank" rel="noopener">automatic drawing</a>,
+          <a href="https://en.wikipedia.org/wiki/Automatic_writing" target="_blank" rel="noopener">automatic writing</a>,
+          <a href="https://en.wikipedia.org/wiki/Music" target="_blank" rel="noopener">music</a>,
+          <a href="https://en.wikipedia.org/wiki/Electronic_voice_phenomenon" target="_blank" rel="noopener">spiritualist radio scanning</a>, and
+          <a href="https://en.wikipedia.org/wiki/Action_painting" target="_blank" rel="noopener">action painting</a>,
+          were translated into seven quick prototypes. These low-fidelity experiments
+          tested how real-time brain activity could drive real-time outputs.
+        </p>
+        <p class="is-read">
+          Users were most engaged when the system produced a tangible object, and they
+          could watch it being made in front of them in real time.
+        </p>
+        <p class="is-talk">
+          <a href="https://en.wikipedia.org/wiki/Automatic_drawing" target="_blank" rel="noopener">Automatic drawing</a>,
+          <a href="https://en.wikipedia.org/wiki/Automatic_writing" target="_blank" rel="noopener">automatic writing</a>,
+          <a href="https://en.wikipedia.org/wiki/Music" target="_blank" rel="noopener">music</a>,
+          <a href="https://en.wikipedia.org/wiki/Electronic_voice_phenomenon" target="_blank" rel="noopener">spiritualist radio scanning</a>, and
+          <a href="https://en.wikipedia.org/wiki/Action_painting" target="_blank" rel="noopener">action painting</a>
+          became seven prototypes. People engaged most when an object was made in front of them.
+        </p>
+        <ul class="gallery gallery--single">
+          <li>
+            <figure class="thumb">
+              <img src="images/early-experiment.jpg" alt="An early marbling prototype with pigment dripping into a tray" />
+              <figcaption>Early experiment</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="thumb">
+              <img src="images/publications.jpg" alt="The Mind in Motion publication, closed and open to the experiments spread" />
+              <figcaption>Publication</figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <h2 id="wavelet">Wavelet</h2>
+        <p class="is-read">
+          Wavelet is a marbling device. Arduino-controlled water pumps drip pigment
+          onto a liquid surface, and
+          <a href="https://en.wikipedia.org/wiki/Electroencephalography" target="_blank" rel="noopener">EEG</a>
+          data decides the colour: delta is blue, theta green, alpha yellow, and beta
+          red.
+        </p>
+        <p class="is-read">
+          The paint itself supplies the randomness, in the manner of
+          <a href="https://en.wikipedia.org/wiki/Paper_marbling" target="_blank" rel="noopener">paper marbling</a>
+          and action painting. A later version uses a three-tier wooden frame and
+          hospital-grade infusion sets so the drops fall more slowly and evenly.<sup class="reference" id="cite-ref-catalogue"><a href="#cite-note-catalogue">[2]</a></sup>
+        </p>
+        <p class="is-talk">
+          Wavelet drips pigment onto liquid.
+          <a href="https://en.wikipedia.org/wiki/Electroencephalography" target="_blank" rel="noopener">EEG</a>
+          sets the colour: delta blue, theta green, alpha yellow, beta red.
+          The paint supplies the randomness, as in
+          <a href="https://en.wikipedia.org/wiki/Paper_marbling" target="_blank" rel="noopener">paper marbling</a>.<sup class="reference"><a href="#cite-note-catalogue">[2]</a></sup>
+        </p>
+
+        <ul class="gallery gallery--single">
+          <li>
+            <figure class="thumb">
+              <img src="images/wavelet.jpg" alt="The Wavelet marbling device, a wooden frame with four pigment vials and a tray" />
+              <figcaption>Wavelet</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="thumb">
+              <img src="images/wavelet-prints.jpg" alt="A boxed set of Mind in Motion cards beside twelve marbled prints" />
+              <figcaption>Wavelet prints</figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <h2 id="dream-journal-interface">Dream Journal</h2>
+        <p class="is-read">
+          This interface reworks
+          <a href="https://en.wikipedia.org/wiki/Automatic_writing" target="_blank" rel="noopener">automatic writing</a>.
+          Theta and alpha waves, read as states of dreaming and calm wakefulness,
+          select words from an index drawn from dream interpretation.
+        </p>
+        <p class="is-read">
+          A thermal printer acts as a contemporary typewriter, producing a stream of
+          text that follows the user's level of relaxation. An OLED screen was added
+          so people could see the brainwave data as the sentences appeared.
+        </p>
+        <p class="is-talk">
+          It reworks
+          <a href="https://en.wikipedia.org/wiki/Automatic_writing" target="_blank" rel="noopener">automatic writing</a>.
+          Theta and alpha waves pick words from dream interpretation, and a thermal printer types a stream that follows relaxation.
+        </p>
+
+        <ul class="gallery gallery--single">
+          <li>
+            <figure class="thumb">
+              <img src="images/mim-dream-journal.jpg" alt="A wooden box with a small screen and a thermal printer" />
+              <figcaption>Dream Journal</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="thumb">
+              <img src="images/mim-dream-journal-use.jpg" alt="A person wearing an EEG headband beside the Dream Journal printer" />
+              <figcaption>Dream Journal</figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <h2 id="frequent-encounters">Frequent Encounters</h2>
+        <p class="is-read">
+          Frequent Encounters turns theta waves into radio frequencies. The idea sits
+          between surrealist automatism and the
+          <a href="https://en.wikipedia.org/wiki/Electronic_voice_phenomenon" target="_blank" rel="noopener">spirit box</a>:
+          a scan of stations that treats noise as a material.
+        </p>
+        <p class="is-read">
+          The finished form looks like a twentieth-century machine, in cream with
+          rounded corners, and plays local stations through a speaker and an earphone
+          jack.
+        </p>
+        <p class="is-talk">
+          Frequent Encounters turns theta waves into radio frequencies, between surrealist automatism and the
+          <a href="https://en.wikipedia.org/wiki/Electronic_voice_phenomenon" target="_blank" rel="noopener">spirit box</a>,
+          and plays local stations.
+        </p>
+
+        <ul class="gallery gallery--single">
+          <li>
+            <figure class="thumb">
+              <img src="images/frequent-encounters.jpg" alt="A cream radio with a blue display, speaker, and antenna" />
+              <figcaption>Frequent Encounters</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="thumb">
+              <img src="images/concept-device.jpg" alt="A person listening while a device prints a paper strip" />
+              <figcaption>Previous Prototype of Frequent Encounters</figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <h2 id="automata">Automata</h2>
+        <p class="is-read">
+          Automata translates brainwaves into abstract bitmap images, a graphic trace
+          of neural activity in the spirit of automatic drawing. It uses a
+          <a href="https://en.wikipedia.org/wiki/Cellular_automaton" target="_blank" rel="noopener">cellular automaton</a>,
+          <a href="https://en.wikipedia.org/wiki/Rule_30" target="_blank" rel="noopener">Rule 30</a>,
+          and lets theta measurements disturb the pattern.
+        </p>
+        <p class="is-read">
+          New rows appear every 250 milliseconds, scroll off the screen, and print
+          onto thermal paper.
+        </p>
+        <p class="is-talk">
+          Automata turns brainwaves into bitmap images with a
+          <a href="https://en.wikipedia.org/wiki/Cellular_automaton" target="_blank" rel="noopener">cellular automaton</a>,
+          <a href="https://en.wikipedia.org/wiki/Rule_30" target="_blank" rel="noopener">Rule 30</a>,
+          disturbed by theta, and prints them on thermal paper.
+        </p>
+
+        <ul class="gallery gallery--single">
+          <li>
+            <figure class="thumb">
+              <img src="images/automata.jpg" alt="A cream device with a small screen and a slot for printed paper" />
+              <figcaption>Automata</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="thumb">
+              <img src="images/automata-prints.jpg" alt="Three printed Rule 30 patterns labelled by alpha and theta waves" />
+              <figcaption>Automata prints</figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <h2 id="references">References</h2>
+        <ol class="references">
+          <li id="cite-note-lasalle">
+            Jung, Yunso (2025). <cite>Mind in Motion</cite>.
+            <a href="https://jungyunso.com" target="_blank" rel="noopener">jungyunso.com</a>.
+            <a href="#cite-ref-lasalle">↑</a>
+          </li>
+          <li id="cite-note-catalogue">
+            Jung, Yunso. <cite>Mind in Motion: Catalogue of Making</cite>.
+            <a href="https://jungyunso.com" target="_blank" rel="noopener">jungyunso.com</a>.
+            <a href="#cite-ref-catalogue">↑</a>
+          </li>
+        </ol>
+      </article>
+
+      <aside class="infobox">
+        <div class="infobox__title">Mind in Motion</div>
+        <img class="infobox__image" src="images/mind-in-motion.jpg" alt="Four Mind in Motion interfaces arranged on a white table" />
+        <dl class="infobox__rows">
+          <dt>Artist</dt>
+          <dd><a href="index.html">Yunso Jung</a></dd>
+          <dt>Year</dt>
+          <dd>2025</dd>
+          <dt>Interfaces</dt>
+          <dd>Wavelet, Dream Journal, Frequent Encounters, Automata</dd>
+          <dt>Genres</dt>
+          <dd>Interaction Design, Media Art</dd>
+        </dl>
+      </aside>
+
+      <div class="catlinks">
+        <span class="catlinks__label">Categories</span>
+        <a href="index.html">Yunso's Triangle</a>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>This page was last edited on 30 September 2026.</p>
+    </footer>
+
+    <script src="js/infobox.js"></script>
+    <script src="js/links.js"></script>
+    <script src="js/grid.js"></script>
+    <script src="js/snap.js"></script>
+    <script src="js/wiki.js"></script>
+  </body>
+</html>

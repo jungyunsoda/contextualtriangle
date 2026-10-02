@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cumulus — Yunso's Triangle</title>
+    <meta
+      name="description"
+      content="Cumulus is a CubeSat-like device by MORAKANA that watches clouds cross the Mexico–United States border."
+    />
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/zoom.js?v=2"></script>
+  </head>
+  <body id="top">
+    <button type="button" id="zoom-toggle" class="zoom-toggle" aria-label="Presenter mode" aria-pressed="false">+</button>
+    <header class="site-header" aria-hidden="true"></header>
+
+    <main class="page">
+      <div class="page__head">
+        <h1 class="page__title">Cumulus</h1>
+      </div>
+
+      <article class="content">
+        <p class="lede is-read">
+          <b>Cumulus</b> is a
+          <a href="https://en.wikipedia.org/wiki/CubeSat" target="_blank" rel="noopener">CubeSat</a>-like
+          device by MORAKANA that watches
+          <a href="https://en.wikipedia.org/wiki/Cloud" target="_blank" rel="noopener">clouds</a>
+          cross the
+          <a href="https://en.wikipedia.org/wiki/Mexico%E2%80%93United_States_border" target="_blank" rel="noopener">Mexico–United States border</a>.<sup class="reference" id="cite-ref-morakana"><a href="#cite-note-morakana">[1]</a></sup>
+          It is part of the <a href="index.html#wish">second section</a> of
+          <a href="index.html">Yunso's Triangle</a>, along with
+          <a href="latent-chair.html">Latent Chair</a> and
+          <a href="ai-nushu.html">AI Nüshu</a>.
+        </p>
+        <p class="lede is-talk">
+          <b>Cumulus</b>, by MORAKANA, is a
+          <a href="https://en.wikipedia.org/wiki/CubeSat" target="_blank" rel="noopener">CubeSat</a>-like
+          device that watches
+          <a href="https://en.wikipedia.org/wiki/Cloud" target="_blank" rel="noopener">clouds</a>
+          cross the
+          <a href="https://en.wikipedia.org/wiki/Mexico%E2%80%93United_States_border" target="_blank" rel="noopener">Mexico–United States border</a>.<sup class="reference"><a href="#cite-note-morakana">[1]</a></sup>
+          It is part of the <a href="index.html#wish">second section</a> of
+          <a href="index.html">Yunso's Triangle</a>, along with
+          <a href="latent-chair.html">Latent Chair</a> and
+          <a href="ai-nushu.html">AI Nüshu</a>.
+        </p>
+
+        <h2 id="concept">Concept</h2>
+        <p class="is-read">
+          The device looks at the border for clouds, not for people. Near-real-time
+          <a href="https://en.wikipedia.org/wiki/Satellite_imagery" target="_blank" rel="noopener">satellite images</a>
+          give a view without political lines. The artists tie that
+          view to the
+          <a href="https://en.wikipedia.org/wiki/Overview_effect" target="_blank" rel="noopener">overview effect</a>,
+          the shift in awareness reported by
+          <a href="https://en.wikipedia.org/wiki/Astronaut" target="_blank" rel="noopener">astronauts</a>
+          who see Earth from
+          <a href="https://en.wikipedia.org/wiki/Orbit" target="_blank" rel="noopener">orbit</a>.
+          Unlike a CubeSat, Cumulus stays on the ground, so that perspective is
+          offered from Earth.
+        </p>
+        <p class="is-talk">
+          It looks for clouds, not people.
+          <a href="https://en.wikipedia.org/wiki/Satellite_imagery" target="_blank" rel="noopener">Satellite images</a>
+          show the border without political lines, tied to the
+          <a href="https://en.wikipedia.org/wiki/Overview_effect" target="_blank" rel="noopener">overview effect</a>
+          reported by
+          <a href="https://en.wikipedia.org/wiki/Astronaut" target="_blank" rel="noopener">astronauts</a>
+          in
+          <a href="https://en.wikipedia.org/wiki/Orbit" target="_blank" rel="noopener">orbit</a>.
+          Cumulus stays on the ground.
+        </p>
+        <ul class="gallery gallery--single">
+          <li>
+            <figure class="thumb">
+              <img src="images/cumulus-clouds.jpg" alt="A satellite view of clouds along the Mexico–US border, with one point marked in red" />
+              <figcaption>Clouds</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="thumb">
+              <img src="images/cumulus-satellite.jpg" alt="Satellite views of the American continent and of clouds crossing the border" />
+              <figcaption>Satellite</figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <h2 id="device">The device</h2>
+        <p class="is-read">
+          Two
+          <a href="https://en.wikipedia.org/wiki/Electronic_paper" target="_blank" rel="noopener">electronic paper</a>
+          displays update every 11 minutes from images taken by
+          <a href="https://en.wikipedia.org/wiki/National_Oceanic_and_Atmospheric_Administration" target="_blank" rel="noopener">NOAA</a>
+          <a href="https://en.wikipedia.org/wiki/Weather_satellite" target="_blank" rel="noopener">satellites</a>.
+          One shows the
+          <a href="https://en.wikipedia.org/wiki/Americas" target="_blank" rel="noopener">American continent</a>.
+          The other follows a cloud as
+          it crosses the river, the desert, the walls, or the coastline.
+        </p>
+        <p class="is-read">
+          A
+          <a href="https://en.wikipedia.org/wiki/Computer_vision" target="_blank" rel="noopener">computer-vision</a>
+          program searches the Mexico–US border, which the artists describe as a
+          line of more than 3,000 km and the most crossed in the world.
+          <a href="https://en.wikipedia.org/wiki/Light-emitting_diode" target="_blank" rel="noopener">LEDs</a>
+          stand
+          in for that line, and a red LED marks the place where a cloud is crossing.
+          The housing uses the materials, scale, and power of a
+          <a href="https://en.wikipedia.org/wiki/Small_satellite" target="_blank" rel="noopener">small satellite</a>.
+        </p>
+        <p class="is-talk">
+          Two
+          <a href="https://en.wikipedia.org/wiki/Electronic_paper" target="_blank" rel="noopener">electronic paper</a>
+          displays update every 11 minutes from
+          <a href="https://en.wikipedia.org/wiki/National_Oceanic_and_Atmospheric_Administration" target="_blank" rel="noopener">NOAA</a>
+          <a href="https://en.wikipedia.org/wiki/Weather_satellite" target="_blank" rel="noopener">satellites</a>:
+          the
+          <a href="https://en.wikipedia.org/wiki/Americas" target="_blank" rel="noopener">American continent</a>,
+          and a cloud crossing the border.
+          <a href="https://en.wikipedia.org/wiki/Computer_vision" target="_blank" rel="noopener">Computer vision</a>
+          searches that line;
+          <a href="https://en.wikipedia.org/wiki/Light-emitting_diode" target="_blank" rel="noopener">LEDs</a>
+          stand in for it, and a red LED marks the crossing.
+          The housing follows a
+          <a href="https://en.wikipedia.org/wiki/Small_satellite" target="_blank" rel="noopener">small satellite</a>.
+        </p>
+        <ul class="gallery gallery--single">
+          <li>
+            <figure class="thumb">
+              <img src="images/cumulus-display.jpg" alt="The Cumulus housing with an electronic paper display of clouds and solar panels" />
+              <figcaption>Display</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="thumb">
+              <img src="images/cumulus-leds.jpg" alt="A circuit board whose LEDs trace the border, with one LED lit red" />
+              <figcaption>LEDs</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="thumb">
+              <img src="images/cumulus-housing.jpg" alt="The aluminium frame and solar cells of the Cumulus housing" />
+              <figcaption>Housing</figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <h2 id="references">References</h2>
+        <ol class="references">
+          <li id="cite-note-morakana">
+            MORAKANA. <cite>Cumulus</cite>.
+            <a href="https://morakana.com/work/cumulus" target="_blank" rel="noopener">morakana.com</a>.
+            <a href="#cite-ref-morakana">↑</a>
+          </li>
+        </ol>
+      </article>
+
+      <aside class="infobox">
+        <div class="infobox__title">Cumulus</div>
+        <img class="infobox__image" src="images/cumulus.png" alt="Cumulus, a CubeSat-like device with two e-ink displays showing clouds" />
+        <dl class="infobox__rows">
+          <dt>Artists</dt>
+          <dd>MORAKANA</dd>
+          <dt>Year</dt>
+          <dd>2022–2025</dd>
+          <dt>Genres</dt>
+          <dd>Device</dd>
+        </dl>
+      </aside>
+
+      <div class="catlinks">
+        <span class="catlinks__label">Categories</span>
+        <a href="index.html">Yunso's Triangle</a>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>This page was last edited on 30 September 2026.</p>
+    </footer>
+
+    <script src="js/infobox.js"></script>
+    <script src="js/links.js"></script>
+    <script src="js/grid.js"></script>
+    <script src="js/snap.js"></script>
+    <script src="js/wiki.js"></script>
+  </body>
+</html>
